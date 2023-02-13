@@ -35,7 +35,7 @@ modules:
     sources:
       - type: file
         url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.6.1/slimevr.jar
-        sha256: 2ad687d986be07df9883cef393619392b9c057eaa826022d70ae237b99f5e7d8
+        sha256: 484ab5afacb96b0050eb386409d52bb8fc511abb57c18b4f92b0cd07359625f3
   - name: slimevr-gui
     buildsystem: simple
     build-options:
