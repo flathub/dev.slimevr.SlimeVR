@@ -1,9 +1,9 @@
 [
     {
         "type": "git",
-        "url": "https://github.com/tauri-apps/tauri-plugin-window-state",
-        "commit": "53288bde5968f16cd876c23255ffeeaecbf4466f",
-        "dest": "flatpak-cargo/git/tauri-plugin-window-state-53288bd"
+        "url": "https://github.com/tauri-apps/plugins-workspace",
+        "commit": "bf1106a0a5e178ce38ecde56751ba037307a7ae8",
+        "dest": "flatpak-cargo/git/plugins-workspace-bf1106a"
     },
     {
         "type": "archive",
@@ -2426,6 +2426,19 @@
     {
         "type": "archive",
         "archive-type": "tar-gzip",
+        "url": "https://static.crates.io/crates/os_info/os_info-3.5.1.crate",
+        "sha256": "c4750134fb6a5d49afc80777394ad5d95b04bc12068c6abb92fae8f43817270f",
+        "dest": "cargo/vendor/os_info-3.5.1"
+    },
+    {
+        "type": "inline",
+        "contents": "{\"package\": \"c4750134fb6a5d49afc80777394ad5d95b04bc12068c6abb92fae8f43817270f\", \"files\": {}}",
+        "dest": "cargo/vendor/os_info-3.5.1",
+        "dest-filename": ".cargo-checksum.json"
+    },
+    {
+        "type": "archive",
+        "archive-type": "tar-gzip",
         "url": "https://static.crates.io/crates/os_pipe/os_pipe-1.1.2.crate",
         "sha256": "c6a252f1f8c11e84b3ab59d7a488e48e4478a93937e027076638c49536204639",
         "dest": "cargo/vendor/os_pipe-1.1.2"
@@ -3401,14 +3414,14 @@
     {
         "type": "archive",
         "archive-type": "tar-gzip",
-        "url": "https://static.crates.io/crates/shadow-rs/shadow-rs-0.19.0.crate",
-        "sha256": "6c401e795850edb4e9fdde5940f856364f0fbab573e8dea58f6ee5f85fcf471d",
-        "dest": "cargo/vendor/shadow-rs-0.19.0"
+        "url": "https://static.crates.io/crates/shadow-rs/shadow-rs-0.20.0.crate",
+        "sha256": "8da90bd2a722461267a2c5d20b2c6de76dba087348e60484fd6c3fbb48b766d6",
+        "dest": "cargo/vendor/shadow-rs-0.20.0"
     },
     {
         "type": "inline",
-        "contents": "{\"package\": \"6c401e795850edb4e9fdde5940f856364f0fbab573e8dea58f6ee5f85fcf471d\", \"files\": {}}",
-        "dest": "cargo/vendor/shadow-rs-0.19.0",
+        "contents": "{\"package\": \"8da90bd2a722461267a2c5d20b2c6de76dba087348e60484fd6c3fbb48b766d6\", \"files\": {}}",
+        "dest": "cargo/vendor/shadow-rs-0.20.0",
         "dest-filename": ".cargo-checksum.json"
     },
     {
@@ -3687,7 +3700,7 @@
     {
         "type": "shell",
         "commands": [
-            "cp -r --reflink=auto \"flatpak-cargo/git/tauri-plugin-window-state-53288bd/.\" \"cargo/vendor/tauri-plugin-window-state\""
+            "cp -r --reflink=auto \"flatpak-cargo/git/plugins-workspace-bf1106a/plugins/window-state\" \"cargo/vendor/tauri-plugin-window-state\""
         ]
     },
     {
@@ -4920,7 +4933,7 @@
     },
     {
         "type": "inline",
-        "contents": "[source.vendored-sources]\ndirectory = \"cargo/vendor\"\n\n[source.crates-io]\nreplace-with = \"vendored-sources\"\n\n[source.\"https://github.com/tauri-apps/tauri-plugin-window-state\"]\ngit = \"https://github.com/tauri-apps/tauri-plugin-window-state\"\nreplace-with = \"vendored-sources\"\nrev = \"refs/pull/52/head\"\n",
+        "contents": "[source.vendored-sources]\ndirectory = \"cargo/vendor\"\n\n[source.crates-io]\nreplace-with = \"vendored-sources\"\n\n[source.\"https://github.com/tauri-apps/plugins-workspace\"]\ngit = \"https://github.com/tauri-apps/plugins-workspace\"\nreplace-with = \"vendored-sources\"\nbranch = \"dev\"\n",
         "dest": "cargo",
         "dest-filename": "config"
     }
