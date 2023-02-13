@@ -1,5 +1,5 @@
 diff --git a/Cargo.lock b/Cargo.lock
-index c56c895e..c20680ae 100644
+index c56c895e..4d3b553e 100644
 --- a/Cargo.lock
 +++ b/Cargo.lock
 @@ -43,9 +43,9 @@ dependencies = [
@@ -613,15 +613,7 @@ index c56c895e..c20680ae 100644
  dependencies = [
   "itoa 1.0.5",
   "ryu",
-@@ -2620,7 +2644,6 @@ dependencies = [
- name = "slimevr"
- version = "0.0.0"
- dependencies = [
-- "cfg-if",
-  "cfg_aliases",
-  "clap",
-  "clap-verbosity-flag",
-@@ -2755,7 +2778,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
+@@ -2755,7 +2779,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
  checksum = "2955b1fe31e1fa2fbd1976b71cc69a606d7d4da16f6de3333d0c92d51419aeff"
  dependencies = [
   "cfg-expr 0.11.0",
@@ -630,7 +622,7 @@ index c56c895e..c20680ae 100644
   "pkg-config",
   "toml",
   "version-compare 0.1.1",
-@@ -2801,7 +2824,7 @@ dependencies = [
+@@ -2801,7 +2825,7 @@ dependencies = [
   "scopeguard",
   "serde",
   "unicode-segmentation",
@@ -639,7 +631,7 @@ index c56c895e..c20680ae 100644
   "windows 0.39.0",
   "windows-implement",
   "x11-dl",
-@@ -2820,9 +2843,9 @@ dependencies = [
+@@ -2820,9 +2844,9 @@ dependencies = [
  
  [[package]]
  name = "tauri"
@@ -651,7 +643,7 @@ index c56c895e..c20680ae 100644
  dependencies = [
   "anyhow",
   "cocoa",
-@@ -2834,7 +2857,7 @@ dependencies = [
+@@ -2834,7 +2858,7 @@ dependencies = [
   "glib",
   "glob",
   "gtk",
@@ -660,7 +652,7 @@ index c56c895e..c20680ae 100644
   "http",
   "ignore",
   "objc",
-@@ -2862,7 +2885,7 @@ dependencies = [
+@@ -2862,7 +2886,7 @@ dependencies = [
   "thiserror",
   "tokio",
   "url",
@@ -669,7 +661,7 @@ index c56c895e..c20680ae 100644
   "webkit2gtk",
   "webview2-com",
   "windows 0.39.0",
-@@ -2876,7 +2899,7 @@ checksum = "8807c85d656b2b93927c19fe5a5f1f1f348f96c2de8b90763b3c2d561511f9b4"
+@@ -2876,7 +2900,7 @@ checksum = "8807c85d656b2b93927c19fe5a5f1f1f348f96c2de8b90763b3c2d561511f9b4"
  dependencies = [
   "anyhow",
   "cargo_toml",
@@ -678,7 +670,7 @@ index c56c895e..c20680ae 100644
   "json-patch",
   "semver 1.0.16",
   "serde_json",
-@@ -2906,7 +2929,7 @@ dependencies = [
+@@ -2906,7 +2930,7 @@ dependencies = [
   "tauri-utils",
   "thiserror",
   "time",
@@ -687,7 +679,7 @@ index c56c895e..c20680ae 100644
   "walkdir",
  ]
  
-@@ -2916,7 +2939,7 @@ version = "1.2.1"
+@@ -2916,7 +2940,7 @@ version = "1.2.1"
  source = "registry+https://github.com/rust-lang/crates.io-index"
  checksum = "069319e5ecbe653a799b94b0690d9f9bf5d00f7b1d3989aa331c524d4e354075"
  dependencies = [
@@ -696,7 +688,22 @@ index c56c895e..c20680ae 100644
   "proc-macro2",
   "quote",
   "syn",
-@@ -2953,7 +2976,7 @@ dependencies = [
+@@ -2927,13 +2951,10 @@ dependencies = [
+ [[package]]
+ name = "tauri-plugin-window-state"
+ version = "0.1.0"
+-source = "git+https://github.com/tauri-apps/plugins-workspace?branch=dev#bf1106a0a5e178ce38ecde56751ba037307a7ae8"
++source = "git+https://github.com/ImUrX/tauri-plugin-window-state?branch=monitor-data#53288bde5968f16cd876c23255ffeeaecbf4466f"
+ dependencies = [
+  "bincode",
+- "bitflags",
+- "log",
+  "serde",
+- "serde_json",
+  "tauri",
+  "thiserror",
+ ]
+@@ -2953,7 +2974,7 @@ dependencies = [
   "serde_json",
   "tauri-utils",
   "thiserror",
@@ -705,7 +712,7 @@ index c56c895e..c20680ae 100644
   "webview2-com",
   "windows 0.39.0",
  ]
-@@ -2971,7 +2994,7 @@ dependencies = [
+@@ -2971,7 +2992,7 @@ dependencies = [
   "raw-window-handle",
   "tauri-runtime",
   "tauri-utils",
@@ -714,7 +721,7 @@ index c56c895e..c20680ae 100644
   "webkit2gtk",
   "webview2-com",
   "windows 0.39.0",
-@@ -2987,7 +3010,7 @@ dependencies = [
+@@ -2987,7 +3008,7 @@ dependencies = [
   "brotli",
   "ctor",
   "glob",
@@ -723,7 +730,7 @@ index c56c895e..c20680ae 100644
   "html5ever",
   "infer",
   "json-patch",
-@@ -3033,9 +3056,9 @@ dependencies = [
+@@ -3033,9 +3054,9 @@ dependencies = [
  
  [[package]]
  name = "termcolor"
@@ -735,7 +742,7 @@ index c56c895e..c20680ae 100644
  dependencies = [
   "winapi-util",
  ]
-@@ -3068,10 +3091,11 @@ dependencies = [
+@@ -3068,10 +3089,11 @@ dependencies = [
  
  [[package]]
  name = "thread_local"
@@ -749,7 +756,7 @@ index c56c895e..c20680ae 100644
   "once_cell",
  ]
  
-@@ -3115,33 +3139,50 @@ dependencies = [
+@@ -3115,33 +3137,50 @@ dependencies = [
  
  [[package]]
  name = "tinyvec_macros"
@@ -807,7 +814,7 @@ index c56c895e..c20680ae 100644
  [[package]]
  name = "tracing"
  version = "0.1.37"
-@@ -3246,9 +3287,9 @@ checksum = "9e79c4d996edb816c91e4308506774452e55e95c3c9de07b6729e17e15a5ef81"
+@@ -3246,9 +3285,9 @@ checksum = "9e79c4d996edb816c91e4308506774452e55e95c3c9de07b6729e17e15a5ef81"
  
  [[package]]
  name = "unicode-bidi"
@@ -819,7 +826,7 @@ index c56c895e..c20680ae 100644
  
  [[package]]
  name = "unicode-ident"
-@@ -3267,9 +3308,9 @@ dependencies = [
+@@ -3267,9 +3306,9 @@ dependencies = [
  
  [[package]]
  name = "unicode-segmentation"
@@ -831,7 +838,7 @@ index c56c895e..c20680ae 100644
  
  [[package]]
  name = "unicode-width"
-@@ -3309,9 +3350,9 @@ checksum = "bc5cf98d8186244414c848017f0e2676b3fcb46807f6668a97dfe67359a3c4b7"
+@@ -3309,9 +3348,9 @@ checksum = "bc5cf98d8186244414c848017f0e2676b3fcb46807f6668a97dfe67359a3c4b7"
  
  [[package]]
  name = "uuid"
@@ -843,7 +850,7 @@ index c56c895e..c20680ae 100644
  dependencies = [
   "getrandom 0.2.8",
  ]
-@@ -3371,9 +3412,9 @@ checksum = "9c8d87e72b64a3b4db28d11ce29237c246188f4f51057d65a7eab63b7987e423"
+@@ -3371,9 +3410,9 @@ checksum = "9c8d87e72b64a3b4db28d11ce29237c246188f4f51057d65a7eab63b7987e423"
  
  [[package]]
  name = "wasm-bindgen"
@@ -855,7 +862,7 @@ index c56c895e..c20680ae 100644
  dependencies = [
   "cfg-if",
   "wasm-bindgen-macro",
-@@ -3381,9 +3422,9 @@ dependencies = [
+@@ -3381,9 +3420,9 @@ dependencies = [
  
  [[package]]
  name = "wasm-bindgen-backend"
@@ -867,7 +874,7 @@ index c56c895e..c20680ae 100644
  dependencies = [
   "bumpalo",
   "log",
-@@ -3396,9 +3437,9 @@ dependencies = [
+@@ -3396,9 +3435,9 @@ dependencies = [
  
  [[package]]
  name = "wasm-bindgen-futures"
@@ -879,7 +886,7 @@ index c56c895e..c20680ae 100644
  dependencies = [
   "cfg-if",
   "js-sys",
-@@ -3408,9 +3449,9 @@ dependencies = [
+@@ -3408,9 +3447,9 @@ dependencies = [
  
  [[package]]
  name = "wasm-bindgen-macro"
@@ -891,7 +898,7 @@ index c56c895e..c20680ae 100644
  dependencies = [
   "quote",
   "wasm-bindgen-macro-support",
-@@ -3418,9 +3459,9 @@ dependencies = [
+@@ -3418,9 +3457,9 @@ dependencies = [
  
  [[package]]
  name = "wasm-bindgen-macro-support"
@@ -903,7 +910,7 @@ index c56c895e..c20680ae 100644
  dependencies = [
   "proc-macro2",
   "quote",
-@@ -3431,15 +3472,15 @@ dependencies = [
+@@ -3431,15 +3470,15 @@ dependencies = [
  
  [[package]]
  name = "wasm-bindgen-shared"
@@ -923,7 +930,7 @@ index c56c895e..c20680ae 100644
  dependencies = [
   "js-sys",
   "wasm-bindgen",
-@@ -3532,9 +3573,9 @@ dependencies = [
+@@ -3532,9 +3571,9 @@ dependencies = [
  
  [[package]]
  name = "which"
@@ -935,7 +942,7 @@ index c56c895e..c20680ae 100644
  dependencies = [
   "either",
   "libc",
-@@ -3642,12 +3683,36 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
+@@ -3642,12 +3681,36 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
  checksum = "5a3e1820f08b8513f676f7ab6c1f99ff312fb97b553d30ff4dd86f9f15728aa7"
  dependencies = [
   "windows_aarch64_gnullvm",
@@ -947,7 +954,8 @@ index c56c895e..c20680ae 100644
 + "windows_i686_gnu 0.42.1",
 + "windows_i686_msvc 0.42.1",
 + "windows_x86_64_gnu 0.42.1",
-+ "windows_x86_64_gnullvm",
+  "windows_x86_64_gnullvm",
+- "windows_x86_64_msvc 0.42.0",
 + "windows_x86_64_msvc 0.42.1",
 +]
 +
@@ -971,13 +979,12 @@ index c56c895e..c20680ae 100644
 + "windows_i686_gnu 0.42.1",
 + "windows_i686_msvc 0.42.1",
 + "windows_x86_64_gnu 0.42.1",
-  "windows_x86_64_gnullvm",
-- "windows_x86_64_msvc 0.42.0",
++ "windows_x86_64_gnullvm",
 + "windows_x86_64_msvc 0.42.1",
  ]
  
  [[package]]
-@@ -3658,9 +3723,9 @@ checksum = "f838de2fe15fe6bac988e74b798f26499a8b21a9d97edec321e79b28d1d7f597"
+@@ -3658,9 +3721,9 @@ checksum = "f838de2fe15fe6bac988e74b798f26499a8b21a9d97edec321e79b28d1d7f597"
  
  [[package]]
  name = "windows_aarch64_gnullvm"
@@ -989,7 +996,7 @@ index c56c895e..c20680ae 100644
  
  [[package]]
  name = "windows_aarch64_msvc"
-@@ -3676,9 +3741,9 @@ checksum = "ec7711666096bd4096ffa835238905bb33fb87267910e154b18b44eaabb340f2"
+@@ -3676,9 +3739,9 @@ checksum = "ec7711666096bd4096ffa835238905bb33fb87267910e154b18b44eaabb340f2"
  
  [[package]]
  name = "windows_aarch64_msvc"
@@ -1001,7 +1008,7 @@ index c56c895e..c20680ae 100644
  
  [[package]]
  name = "windows_i686_gnu"
-@@ -3694,9 +3759,9 @@ checksum = "763fc57100a5f7042e3057e7e8d9bdd7860d330070251a73d003563a3bb49e1b"
+@@ -3694,9 +3757,9 @@ checksum = "763fc57100a5f7042e3057e7e8d9bdd7860d330070251a73d003563a3bb49e1b"
  
  [[package]]
  name = "windows_i686_gnu"
@@ -1013,7 +1020,7 @@ index c56c895e..c20680ae 100644
  
  [[package]]
  name = "windows_i686_msvc"
-@@ -3712,9 +3777,9 @@ checksum = "7bc7cbfe58828921e10a9f446fcaaf649204dcfe6c1ddd712c5eebae6bda1106"
+@@ -3712,9 +3775,9 @@ checksum = "7bc7cbfe58828921e10a9f446fcaaf649204dcfe6c1ddd712c5eebae6bda1106"
  
  [[package]]
  name = "windows_i686_msvc"
@@ -1025,7 +1032,7 @@ index c56c895e..c20680ae 100644
  
  [[package]]
  name = "windows_x86_64_gnu"
-@@ -3730,15 +3795,15 @@ checksum = "6868c165637d653ae1e8dc4d82c25d4f97dd6605eaa8d784b5c6e0ab2a252b65"
+@@ -3730,15 +3793,15 @@ checksum = "6868c165637d653ae1e8dc4d82c25d4f97dd6605eaa8d784b5c6e0ab2a252b65"
  
  [[package]]
  name = "windows_x86_64_gnu"
@@ -1045,7 +1052,7 @@ index c56c895e..c20680ae 100644
  
  [[package]]
  name = "windows_x86_64_msvc"
-@@ -3754,9 +3819,9 @@ checksum = "5e4d40883ae9cae962787ca76ba76390ffa29214667a111db9e0a1ad8377e809"
+@@ -3754,9 +3817,9 @@ checksum = "5e4d40883ae9cae962787ca76ba76390ffa29214667a111db9e0a1ad8377e809"
  
  [[package]]
  name = "windows_x86_64_msvc"
@@ -1057,7 +1064,7 @@ index c56c895e..c20680ae 100644
  
  [[package]]
  name = "winreg"
-@@ -3816,9 +3881,9 @@ dependencies = [
+@@ -3816,9 +3879,9 @@ dependencies = [
  
  [[package]]
  name = "x11"
@@ -1069,7 +1076,7 @@ index c56c895e..c20680ae 100644
  dependencies = [
   "libc",
   "pkg-config",
-@@ -3826,12 +3891,12 @@ dependencies = [
+@@ -3826,12 +3889,12 @@ dependencies = [
  
  [[package]]
  name = "x11-dl"
@@ -1085,7 +1092,7 @@ index c56c895e..c20680ae 100644
   "pkg-config",
  ]
  
-@@ -3843,9 +3908,3 @@ checksum = "6d1526bbe5aaeb5eb06885f4d987bcdfa5e23187055de9b83fe00156a821fabc"
+@@ -3843,9 +3906,3 @@ checksum = "6d1526bbe5aaeb5eb06885f4d987bcdfa5e23187055de9b83fe00156a821fabc"
  dependencies = [
   "libc",
  ]
@@ -1108,14 +1115,15 @@ index 4e6926fe..04002b98 100644
      <release version="0.5.1" date="2022-12-12"><url>https://github.com/SlimeVR/SlimeVR-Server/releases/tag/v0.5.1</url></release>
      <release version="0.5.0" date="2022-12-07"><url>https://github.com/SlimeVR/SlimeVR-Server/releases/tag/v0.5.0</url></release>
 diff --git a/gui/src-tauri/Cargo.toml b/gui/src-tauri/Cargo.toml
-index 2bcdf9be..3a3cd7f8 100644
+index 2bcdf9be..b88c48a5 100644
 --- a/gui/src-tauri/Cargo.toml
 +++ b/gui/src-tauri/Cargo.toml
-@@ -42,7 +42,6 @@ glob = "0.3"
- open = "3"
- shadow-rs = { version = "0.20", default-features = false }
- const_format = "0.2.30"
--cfg-if = "1"
- 
- [target.'cfg(windows)'.dependencies]
- win32job = "1"
+@@ -30,7 +30,7 @@ serde_json = "1"
+ serde = { version = "1", features = ["derive"] }
+ tauri = { version = "1.2", features = ["devtools", "dialog", "fs-all", "os-all", "path-all", "shell-execute", "window-close", "window-maximize", "window-minimize", "window-set-resizable", "window-set-title", "window-start-dragging", "window-unmaximize", "window-unminimize"] }
+ tauri-runtime = "0.12.1"
+-tauri-plugin-window-state = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "dev" }
++tauri-plugin-window-state = { git = "https://github.com/ImUrX/tauri-plugin-window-state", branch = "monitor-data" }
+ pretty_env_logger = "0.4"
+ log = "0.4"
+ clap = { version = "4.0.29", features = ["derive"] }
