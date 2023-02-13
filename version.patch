@@ -1,3 +1,15 @@
+diff --git a/Cargo.lock b/Cargo.lock
+index c56c895e..7b6f18f7 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -2620,7 +2620,6 @@ dependencies = [
+ name = "slimevr"
+ version = "0.0.0"
+ dependencies = [
+- "cfg-if",
+  "cfg_aliases",
+  "clap",
+  "clap-verbosity-flag",
 diff --git a/dev.slimevr.SlimeVR.metainfo.xml b/dev.slimevr.SlimeVR.metainfo.xml
 index 4e6926fe..04002b98 100644
 --- a/dev.slimevr.SlimeVR.metainfo.xml
@@ -10,3 +22,15 @@ index 4e6926fe..04002b98 100644
      <release version="0.6.0" date="2023-01-05"><url>https://github.com/SlimeVR/SlimeVR-Server/releases/tag/v0.6.0</url></release>
      <release version="0.5.1" date="2022-12-12"><url>https://github.com/SlimeVR/SlimeVR-Server/releases/tag/v0.5.1</url></release>
      <release version="0.5.0" date="2022-12-07"><url>https://github.com/SlimeVR/SlimeVR-Server/releases/tag/v0.5.0</url></release>
+diff --git a/gui/src-tauri/Cargo.toml b/gui/src-tauri/Cargo.toml
+index 2bcdf9be..3a3cd7f8 100644
+--- a/gui/src-tauri/Cargo.toml
++++ b/gui/src-tauri/Cargo.toml
+@@ -42,7 +42,6 @@ glob = "0.3"
+ open = "3"
+ shadow-rs = { version = "0.20", default-features = false }
+ const_format = "0.2.30"
+-cfg-if = "1"
+ 
+ [target.'cfg(windows)'.dependencies]
+ win32job = "1"
