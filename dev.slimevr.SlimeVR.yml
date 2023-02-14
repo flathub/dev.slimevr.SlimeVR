@@ -34,58 +34,42 @@ modules:
       - install -Dm755 slimevr.jar /app/share/slimevr/slimevr.jar
     sources:
       - type: file
-        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.6.0/slimevr.jar
-        sha256: 55675d8f12504b16c1515e480316a91f6575ac4fe80c59ff30da1435bf706b18
+        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.6.1/slimevr.jar
+        sha256: 484ab5afacb96b0050eb386409d52bb8fc511abb57c18b4f92b0cd07359625f3
   - name: slimevr-gui
     buildsystem: simple
     build-options:
       append-path: "/usr/lib/sdk/rust-nightly/bin:/usr/lib/sdk/node16/bin"
       env:
         XDG_CACHE_HOME: /run/build/slimevr-gui/flatpak-node/cache 
+        # Set the npm cache directory, used by npm to find its package metadata.
+        npm_config_cache: /run/build/slimevr-gui/flatpak-node/npm-cache
         # Sets the directory where Node is located so that npm won't download the headers.
         npm_config_nodedir: /usr/lib/sdk/node16
         CARGO_HOME: /run/build/slimevr-gui/cargo
     build-commands:
       - cargo --offline fetch --manifest-path Cargo.toml --verbose
-      - HOME=$PWD yarn config --offline set yarn-offline-mirror $FLATPAK_BUILDER_BUILDDIR/flatpak-node/yarn-mirror
-      # the husky hook is ran in a weird manner and solarxr doesnt get built before the installation
-      # to gui/node_modules, so I just redo it.
-      - yarn --offline && rm -r /run/build/slimevr-gui/gui/node_modules/ && yarn --offline
+      - npm install --offline
       - npm run --offline skipbundler --offline
-      - install -Dm644 gui/src-tauri/icons/icon.png /app/share/icons/hicolor/256x256/apps/dev.slimevr.SlimeVR.png
+      - install -Dm644 gui/src-tauri/icons/icon.svg /app/share/icons/hicolor/scalable/apps/dev.slimevr.SlimeVR.svg
+      - install -Dm644 dev.slimevr.SlimeVR.metainfo.xml /app/share/metainfo/dev.slimevr.SlimeVR.metainfo.xml
+      - install -Dm644 gui/src-tauri/dev.slimevr.SlimeVR.desktop /app/share/applications/dev.slimevr.SlimeVR.desktop
       - install -Dm755 target/release/slimevr /app/bin/slimevr-bin
       - install -Dm755 slimevr-wrapper /app/bin/slimevr
     sources:
       - type: git
         url: https://github.com/SlimeVR/SlimeVR-Server.git
-        tag: "v0.6.0"
-        commit: 4d7c931b696a3524125347ddb288b0257cb8ce56
-      # FIXME: Already made a PR for this change
-      # Patch for expecting a jar inside /app
-      - type: patch
-        path: jar.diff
+        tag: "v0.6.1"
+        commit: 823ef86151b50a45d6863021ef5ccab18d7fe3e2
       # Patch for not checking if git is clean
       - type: patch
         path: clean.diff
-      # yarn.lock maintained just for flatpak
-      - type: file
-        path: yarn.lock
+      - type: patch
+        path: version.patch
       - "node-sources.json"
       - "cargo-sources.json"
-      # TODO: make the TMPDIR be a place where the steamvr driver can expect it
       - type: script
         dest-filename: slimevr-wrapper
         commands:
           - export TMPDIR="$XDG_RUNTIME_DIR/app/$FLATPAK_ID"
           - exec /app/bin/slimevr-bin "$@"
-  # FIXME: Next version of SlimeVR should include this metadata
-  - name: metadata
-    buildsystem: simple
-    build-commands:
-      - install -Dm644 dev.slimevr.SlimeVR.desktop /app/share/applications/dev.slimevr.SlimeVR.desktop
-      - install -Dm644 dev.slimevr.SlimeVR.metainfo.xml /app/share/metainfo/dev.slimevr.SlimeVR.metainfo.xml
-    sources:
-      - type: file
-        path: dev.slimevr.SlimeVR.desktop
-      - type: file
-        path: dev.slimevr.SlimeVR.metainfo.xml
