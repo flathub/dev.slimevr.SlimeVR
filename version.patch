@@ -1,8 +1,8 @@
 diff --git a/dev.slimevr.SlimeVR.metainfo.xml b/dev.slimevr.SlimeVR.metainfo.xml
-index 4e6926fe..04002b98 100644
+index 4e6926fe..e8147713 100644
 --- a/dev.slimevr.SlimeVR.metainfo.xml
 +++ b/dev.slimevr.SlimeVR.metainfo.xml
-@@ -60,6 +60,7 @@ work.  If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
+@@ -60,6 +60,8 @@ work.  If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
      </screenshot>
    </screenshots>
    <releases>
