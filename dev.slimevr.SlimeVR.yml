@@ -34,8 +34,8 @@ modules:
       - install -Dm755 slimevr.jar /app/share/slimevr/slimevr.jar
     sources:
       - type: file
-        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.6.2/slimevr.jar
-        sha256: 5104723354463cdedb3fcf271ca04e0a9a45519b2c4fb3e8ea0f9dc8ac98fc0a
+        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.6.3/slimevr.jar
+        sha256: eb82b114636daac39d4a9a0e6cb0aa0c94289b196364aa0cfde29e6fb5a267a1
   - name: slimevr-gui
     buildsystem: simple
     build-options:
@@ -59,8 +59,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/SlimeVR/SlimeVR-Server.git
-        tag: "v0.6.2"
-        commit: c64d9b979df51de7fe0f8cc7b11ef6a9a6a80b77
+        tag: "v0.6.3"
+        commit: f313e9625dbfb11524e39a5ec70d36bc30de7d97
       # Patch for not checking if git is clean
       - type: patch
         path: clean.diff
