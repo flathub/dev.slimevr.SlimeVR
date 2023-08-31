@@ -1,7 +1,7 @@
 app-id: dev.slimevr.SlimeVR
 runtime: org.gnome.Platform
 sdk: org.gnome.Sdk
-runtime-version: '42'
+runtime-version: '44'
 separate-locales: false
 command: slimevr
 finish-args:
@@ -15,11 +15,12 @@ finish-args:
   - --socket=wayland
   # Add JRE bin on path
   - --env=PATH=/app/jre/bin:/usr/bin:/app/bin
+  - --filesystem=xdg-config/dev.slimevr.SlimeVR:create
   #- --env=GDK_BACKEND=wayland,x11
 # build dependencies
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk17
-  - org.freedesktop.Sdk.Extension.rust-nightly
+  - org.freedesktop.Sdk.Extension.rust-stable
   - org.freedesktop.Sdk.Extension.node16
 modules:
   # We need the JRE for executing the server
@@ -34,8 +35,8 @@ modules:
       - install -Dm755 slimevr.jar /app/share/slimevr/slimevr.jar
     sources:
       - type: file
-        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.6.3/slimevr.jar
-        sha256: eb82b114636daac39d4a9a0e6cb0aa0c94289b196364aa0cfde29e6fb5a267a1
+        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.9.1/slimevr.jar
+        sha256: 472e9b9177b2ac98489a3b2a42a1b9cfb0fe21336bffcfadb1790d6e7b44b96c
   - name: slimevr-gui
     buildsystem: simple
     build-options:
@@ -59,8 +60,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/SlimeVR/SlimeVR-Server.git
-        tag: "v0.6.3"
-        commit: f313e9625dbfb11524e39a5ec70d36bc30de7d97
+        tag: "v0.9.1"
+        commit: 4cab877daac74bc13b661e6e9d8031f3f5dab459
       # Patch for not checking if git is clean
       - type: patch
         path: clean.diff
