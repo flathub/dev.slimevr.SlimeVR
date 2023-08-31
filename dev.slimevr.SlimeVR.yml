@@ -67,6 +67,8 @@ modules:
         path: clean.diff
       - type: patch
         path: version.patch
+      - type: patch
+        path: cargo.patch
       - "node-sources.json"
       - "cargo-sources.json"
       - type: script
