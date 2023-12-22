@@ -6026,6 +6026,13 @@
     },
     {
         "type": "file",
+        "url": "https://registry.npmjs.org/typescript/-/typescript-4.8.4.tgz",
+        "sha512": "40287ef39982cbe8742067dff2be575b339549b04ef8a7de62b31087b349e7c42e8f0704db6bbe3544a6531a85fae9fbd0ff465cac5ad8708d8934cc2649f28d",
+        "dest-filename": "7ef39982cbe8742067dff2be575b339549b04ef8a7de62b31087b349e7c42e8f0704db6bbe3544a6531a85fae9fbd0ff465cac5ad8708d8934cc2649f28d",
+        "dest": "flatpak-node/npm-cache/_cacache/content-v2/sha512/40/28"
+    },
+    {
+        "type": "file",
         "url": "https://registry.npmjs.org/typescript/-/typescript-4.9.5.tgz",
         "sha512": "d455e4f44d879be433650ef3f8c7098872f8356d45d84cccbbd36af62df301a1aa89b69fa98c02554e96c9602ec90451cce971a2ef31652c972c437ca0a8f6e2",
         "dest-filename": "e4f44d879be433650ef3f8c7098872f8356d45d84cccbbd36af62df301a1aa89b69fa98c02554e96c9602ec90451cce971a2ef31652c972c437ca0a8f6e2",
@@ -11164,6 +11171,12 @@
         "contents": "e3d209deb4977c678c000d2ccc4432d949948b6e\t{\"key\": \"make-fetch-happen:request-cache:https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-3.1.1.tgz\", \"integrity\": \"sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==\", \"time\": 0, \"size\": 2847, \"metadata\": {\"url\": \"https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-3.1.1.tgz\", \"reqHeaders\": {}, \"resHeaders\": {}}}",
         "dest-filename": "4b439cd530e6a38af802bae49d3069b7907c9a582ea8e49f5b4f5c2fa497",
         "dest": "flatpak-node/npm-cache/_cacache/index-v5/25/6e"
+    },
+    {
+        "type": "inline",
+        "contents": "e4986c1afeb24709c36449ba3d1f0df8c84b330f\t{\"key\": \"make-fetch-happen:request-cache:https://registry.npmjs.org/typescript/-/typescript-4.8.4.tgz\", \"integrity\": \"sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==\", \"time\": 0, \"size\": 11944158, \"metadata\": {\"url\": \"https://registry.npmjs.org/typescript/-/typescript-4.8.4.tgz\", \"reqHeaders\": {}, \"resHeaders\": {}}}",
+        "dest-filename": "e138af8bd37c878bd1f2d90a2be77f6a86123fc94731faac74fc6a8d9caa",
+        "dest": "flatpak-node/npm-cache/_cacache/index-v5/12/68"
     },
     {
         "type": "inline",
