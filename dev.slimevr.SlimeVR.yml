@@ -60,7 +60,7 @@ modules:
       - type: git
         url: https://github.com/SlimeVR/SlimeVR-Server.git
         tag: "v0.11.0-rc.2"
-        commit: ff218488a74a03c064b3477fc5282d0eaf3a3b90
+        commit: c3c7fc896c5884e961e64eaee84bd7a85d67fbef
       # Patch for not checking if git is clean
       - type: patch
         path: clean.diff
