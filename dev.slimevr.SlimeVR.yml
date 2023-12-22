@@ -1,7 +1,7 @@
 app-id: dev.slimevr.SlimeVR
 runtime: org.gnome.Platform
 sdk: org.gnome.Sdk
-runtime-version: '44'
+runtime-version: '45'
 separate-locales: false
 command: slimevr
 finish-args:
@@ -21,7 +21,7 @@ finish-args:
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk17
   - org.freedesktop.Sdk.Extension.rust-stable
-  - org.freedesktop.Sdk.Extension.node16
+  - org.freedesktop.Sdk.Extension.node18
 modules:
   # We need the JRE for executing the server
   - name: openjdk
@@ -35,18 +35,18 @@ modules:
       - install -Dm755 slimevr.jar /app/share/slimevr/slimevr.jar
     sources:
       - type: file
-        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.9.1/slimevr.jar
-        sha256: 472e9b9177b2ac98489a3b2a42a1b9cfb0fe21336bffcfadb1790d6e7b44b96c
+        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.11.0-rc.2/slimevr.jar
+        sha256: f6b4cc2e094c0235aca8cc856d2f9625b6a11be9d61cc68442b03d0f4676befc
   - name: slimevr-gui
     buildsystem: simple
     build-options:
-      append-path: "/usr/lib/sdk/rust-nightly/bin:/usr/lib/sdk/node16/bin"
+      append-path: "/usr/lib/sdk/rust-nightly/bin:/usr/lib/sdk/node18/bin"
       env:
         XDG_CACHE_HOME: /run/build/slimevr-gui/flatpak-node/cache 
         # Set the npm cache directory, used by npm to find its package metadata.
         npm_config_cache: /run/build/slimevr-gui/flatpak-node/npm-cache
         # Sets the directory where Node is located so that npm won't download the headers.
-        npm_config_nodedir: /usr/lib/sdk/node16
+        npm_config_nodedir: /usr/lib/sdk/node18
         CARGO_HOME: /run/build/slimevr-gui/cargo
     build-commands:
       - cargo --offline fetch --manifest-path Cargo.toml --verbose
@@ -60,15 +60,13 @@ modules:
     sources:
       - type: git
         url: https://github.com/SlimeVR/SlimeVR-Server.git
-        tag: "v0.9.1"
-        commit: 4cab877daac74bc13b661e6e9d8031f3f5dab459
+        tag: "v0.11.0-rc.2"
+        commit: ff218488a74a03c064b3477fc5282d0eaf3a3b90
       # Patch for not checking if git is clean
       - type: patch
         path: clean.diff
       - type: patch
         path: version.patch
-      - type: patch
-        path: cargo.patch
       - "node-sources.json"
       - "cargo-sources.json"
       - type: script
