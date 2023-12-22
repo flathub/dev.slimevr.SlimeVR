@@ -15,7 +15,6 @@ finish-args:
   - --socket=wayland
   # Add JRE bin on path
   - --env=PATH=/app/jre/bin:/usr/bin:/app/bin
-  - --filesystem=xdg-config/dev.slimevr.SlimeVR:create
   #- --env=GDK_BACKEND=wayland,x11
 # build dependencies
 sdk-extensions:
