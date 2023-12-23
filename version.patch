@@ -1,5 +1,5 @@
 diff --git a/dev.slimevr.SlimeVR.metainfo.xml b/dev.slimevr.SlimeVR.metainfo.xml
-index 0ecbc6af..7b9b235b 100644
+index 0ecbc6af..ba142dc5 100644
 --- a/dev.slimevr.SlimeVR.metainfo.xml
 +++ b/dev.slimevr.SlimeVR.metainfo.xml
 @@ -24,6 +24,7 @@ work.  If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
@@ -10,7 +10,7 @@ index 0ecbc6af..7b9b235b 100644
    <url type="vcs-browser">https://github.com/SlimeVR/SlimeVR-Server</url>
    <url type="translate">https://i18n.slimevr.dev</url>
    <url type="help">https://docs.slimevr.dev/server-setup/slimevr-setup.html</url>
-@@ -57,23 +58,35 @@ work.  If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
+@@ -57,23 +58,36 @@ work.  If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
        <image>https://raw.githubusercontent.com/SlimeVR/SlimeVR-Server/main/assets/img/onboarding.png</image>
      </screenshot>
    </screenshots>
