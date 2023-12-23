@@ -1,7 +1,7 @@
 app-id: dev.slimevr.SlimeVR
 runtime: org.gnome.Platform
 sdk: org.gnome.Sdk
-runtime-version: '42'
+runtime-version: '45'
 separate-locales: false
 command: slimevr
 finish-args:
@@ -13,14 +13,16 @@ finish-args:
   - --share=ipc
   - --socket=fallback-x11
   - --socket=wayland
+  # Needed for audio
+  - --socket=pulseaudio
   # Add JRE bin on path
   - --env=PATH=/app/jre/bin:/usr/bin:/app/bin
   #- --env=GDK_BACKEND=wayland,x11
 # build dependencies
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk17
-  - org.freedesktop.Sdk.Extension.rust-nightly
-  - org.freedesktop.Sdk.Extension.node16
+  - org.freedesktop.Sdk.Extension.rust-stable
+  - org.freedesktop.Sdk.Extension.node18
 modules:
   # We need the JRE for executing the server
   - name: openjdk
@@ -34,18 +36,18 @@ modules:
       - install -Dm755 slimevr.jar /app/share/slimevr/slimevr.jar
     sources:
       - type: file
-        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.6.3/slimevr.jar
-        sha256: eb82b114636daac39d4a9a0e6cb0aa0c94289b196364aa0cfde29e6fb5a267a1
+        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.11.0/slimevr.jar
+        sha256: 6ce485e4d40b520bb4c9a202deaf5a43eb885a359dcb0df038df7f5041143c94
   - name: slimevr-gui
     buildsystem: simple
     build-options:
-      append-path: "/usr/lib/sdk/rust-nightly/bin:/usr/lib/sdk/node16/bin"
+      append-path: "/usr/lib/sdk/rust-nightly/bin:/usr/lib/sdk/node18/bin"
       env:
         XDG_CACHE_HOME: /run/build/slimevr-gui/flatpak-node/cache 
         # Set the npm cache directory, used by npm to find its package metadata.
         npm_config_cache: /run/build/slimevr-gui/flatpak-node/npm-cache
         # Sets the directory where Node is located so that npm won't download the headers.
-        npm_config_nodedir: /usr/lib/sdk/node16
+        npm_config_nodedir: /usr/lib/sdk/node18
         CARGO_HOME: /run/build/slimevr-gui/cargo
     build-commands:
       - cargo --offline fetch --manifest-path Cargo.toml --verbose
@@ -59,8 +61,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/SlimeVR/SlimeVR-Server.git
-        tag: "v0.6.3"
-        commit: f313e9625dbfb11524e39a5ec70d36bc30de7d97
+        tag: "v0.11.0"
+        commit: 5ff5f81a88e8d74cb454bb9ad2ca4488ce72ad75
       # Patch for not checking if git is clean
       - type: patch
         path: clean.diff
