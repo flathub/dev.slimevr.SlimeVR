@@ -41,12 +41,10 @@ modules:
         sha256: aa3aea54abe7250fc2a389f6c2fd8e07dfa45a8147a87d1076e71614d4651375
   - name: slimevr-gui
     buildsystem: simple
-    build-options:
-      append-path: /usr/lib/sdk/tauri/bin
     build-commands:
       - source /usr/lib/sdk/rust-stable/enable.sh && cargo --offline fetch --manifest-path Cargo.toml --verbose
       - mkdir -p gui/dist/ && tar -xf slimevr-gui-dist.tar.gz -C gui/dist && ls -l gui/dist
-      - "source /usr/lib/sdk/rust-stable/enable.sh && cd gui && cargo tauri build --config '{\"build\": {\"beforeBuildCommand\": \"\"}}'"
+      - source /usr/lib/sdk/rust-stable/enable.sh && RUSTFLAGS='--cfg desktop' cargo build --release
       - install -Dm644 gui/src-tauri/icons/icon.svg /app/share/icons/hicolor/scalable/apps/dev.slimevr.SlimeVR.svg
       - install -Dm644 dev.slimevr.SlimeVR.metainfo.xml /app/share/metainfo/dev.slimevr.SlimeVR.metainfo.xml
       - install -Dm644 gui/src-tauri/dev.slimevr.SlimeVR.desktop /app/share/applications/dev.slimevr.SlimeVR.desktop
@@ -65,10 +63,6 @@ modules:
       - type: file
         url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.12.1/slimevr-gui-dist.tar.gz
         sha256: 109d871254246523a0392859602c2e6e9752a6e4d8c0c5558a3d592161f3ba69
-      - type: archive
-        url: https://github.com/tauri-apps/tauri/releases/download/tauri-cli-v2.0.0-beta.12/cargo-tauri-x86_64-unknown-linux-gnu.tgz
-        sha256: f43f92bcd52020a8a13babb9fe2ca1c66e3bcc876bef0a153b240b7f1de6c944
-        dest: /usr/lib/sdk/tauri/bin
       - "cargo-sources.json"
       - type: script
         dest-filename: slimevr-wrapper
