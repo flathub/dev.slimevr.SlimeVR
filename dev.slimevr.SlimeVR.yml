@@ -17,6 +17,8 @@ finish-args:
   - --socket=pulseaudio
   # Add JRE bin on path
   - --env=PATH=/app/jre/bin:/usr/bin:/app/bin
+  # Add OpenVR socket
+  - --filesystem=xdg-data/dev.slimevr.SlimeVR
   #- --env=GDK_BACKEND=wayland,x11
 # build dependencies
 sdk-extensions:
@@ -62,9 +64,14 @@ modules:
         path: clean.diff
       - type: patch
         path: version.patch
+      - type: archive
+        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.12.1/slimevr-gui-dist.tar.gz
+        sha256: 109d871254246523a0392859602c2e6e9752a6e4d8c0c5558a3d592161f3ba69
+        dest: gui/dist/
       - "cargo-sources.json"
       - type: script
         dest-filename: slimevr-wrapper
         commands:
           - export TMPDIR="$XDG_RUNTIME_DIR/app/$FLATPAK_ID"
+          - export SLIMEVR_SOCKET_DIR="${SLIMEVR_SOCKET_DIR:-${XDG_DATA_DIR:-$HOME/.local/share}/dev.slimevr.SlimeVR}"
           - exec /app/bin/slimevr-bin "$@"
