@@ -1,7 +1,7 @@
 app-id: dev.slimevr.SlimeVR
 runtime: org.gnome.Platform
 sdk: org.gnome.Sdk
-runtime-version: '45'
+runtime-version: '46'
 separate-locales: false
 command: slimevr
 finish-args:
