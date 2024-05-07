@@ -48,7 +48,7 @@ modules:
         CARGO_HOME: /run/build/slimevr-gui/cargo
     build-commands:
       - cargo --offline fetch --manifest-path Cargo.toml --verbose
-      - ls -l gui/dist/
+      - mkdir -p gui/dist/ && tar -xf slimevr-gui-dist.tar.gz -C gui/dist && ls -l gui/dist
       - RUSTFLAGS="--cfg desktop --check-cfg cfg(mobile) --check-cfg cfg(desktop)" cargo --offline build --release
       - install -Dm644 gui/src-tauri/icons/icon.svg /app/share/icons/hicolor/scalable/apps/dev.slimevr.SlimeVR.svg
       - install -Dm644 dev.slimevr.SlimeVR.metainfo.xml /app/share/metainfo/dev.slimevr.SlimeVR.metainfo.xml
@@ -65,10 +65,9 @@ modules:
         path: clean.diff
       - type: patch
         path: version.patch
-      - type: archive
+      - type: file
         url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.12.1/slimevr-gui-dist.tar.gz
         sha256: 109d871254246523a0392859602c2e6e9752a6e4d8c0c5558a3d592161f3ba69
-        dest: gui/dist/
       - "cargo-sources.json"
       - type: script
         dest-filename: slimevr-wrapper
