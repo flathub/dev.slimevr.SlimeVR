@@ -1,7 +1,7 @@
 app-id: dev.slimevr.SlimeVR
 runtime: org.gnome.Platform
 sdk: org.gnome.Sdk
-runtime-version: '45'
+runtime-version: '47'
 separate-locales: false
 command: slimevr
 finish-args:
@@ -22,8 +22,9 @@ finish-args:
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk17
   - org.freedesktop.Sdk.Extension.rust-stable
-  - org.freedesktop.Sdk.Extension.node18
 modules:
+  # We need LibUSB for HID4Java
+  - shared-modules/libusb/libusb.json
   # We need the JRE for executing the server
   - name: openjdk
     buildsystem: simple
@@ -36,23 +37,19 @@ modules:
       - install -Dm755 slimevr.jar /app/share/slimevr/slimevr.jar
     sources:
       - type: file
-        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.11.0/slimevr.jar
-        sha256: 6ce485e4d40b520bb4c9a202deaf5a43eb885a359dcb0df038df7f5041143c94
+        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.13.1/slimevr.jar
+        sha256: d0c8bf48fbd6de5689da41f1dd0b754b443523b707cc62e281fd45c938d4bd66
   - name: slimevr-gui
     buildsystem: simple
     build-options:
-      append-path: "/usr/lib/sdk/rust-nightly/bin:/usr/lib/sdk/node18/bin"
+      append-path: "/usr/lib/sdk/rust-stable/bin"
       env:
-        XDG_CACHE_HOME: /run/build/slimevr-gui/flatpak-node/cache 
-        # Set the npm cache directory, used by npm to find its package metadata.
-        npm_config_cache: /run/build/slimevr-gui/flatpak-node/npm-cache
-        # Sets the directory where Node is located so that npm won't download the headers.
-        npm_config_nodedir: /usr/lib/sdk/node18
         CARGO_HOME: /run/build/slimevr-gui/cargo
     build-commands:
+      - sed -i gui/src-tauri/dev.slimevr.SlimeVR.desktop -e "s|{{exec}}|slimevr|" -e "s|{{icon}}|dev.slimevr.SlimeVR|"
       - cargo --offline fetch --manifest-path Cargo.toml --verbose
-      - npm install --offline
-      - npm run --offline skipbundler --offline
+      - mkdir -p gui/dist/ && tar -xf slimevr-gui-dist.tar.gz -C gui/dist && ls -l gui/dist
+      - cargo --offline build --release
       - install -Dm644 gui/src-tauri/icons/icon.svg /app/share/icons/hicolor/scalable/apps/dev.slimevr.SlimeVR.svg
       - install -Dm644 dev.slimevr.SlimeVR.metainfo.xml /app/share/metainfo/dev.slimevr.SlimeVR.metainfo.xml
       - install -Dm644 gui/src-tauri/dev.slimevr.SlimeVR.desktop /app/share/applications/dev.slimevr.SlimeVR.desktop
@@ -61,17 +58,20 @@ modules:
     sources:
       - type: git
         url: https://github.com/SlimeVR/SlimeVR-Server.git
-        tag: "v0.11.0"
-        commit: 5ff5f81a88e8d74cb454bb9ad2ca4488ce72ad75
+        tag: "v0.13.1"
+        commit: ab10629b84a8255df314631ac7f5aecafbe6b61c
       # Patch for not checking if git is clean
       - type: patch
         path: clean.diff
       - type: patch
         path: version.patch
-      - "node-sources.json"
+      - type: file
+        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.13.1/slimevr-gui-dist.tar.gz
+        sha256: da2a7c7b18ebe271e90137fe7231d0d8be06cf09698a459f7ecd9fc5a7fe3d77
       - "cargo-sources.json"
       - type: script
         dest-filename: slimevr-wrapper
         commands:
           - export TMPDIR="$XDG_RUNTIME_DIR/app/$FLATPAK_ID"
+          - export SLIMEVR_SOCKET_DIR="${SLIMEVR_SOCKET_DIR:/var/data}"
           - exec /app/bin/slimevr-bin "$@"
