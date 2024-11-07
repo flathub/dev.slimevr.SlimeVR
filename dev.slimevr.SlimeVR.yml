@@ -13,8 +13,6 @@ finish-args:
   - --share=ipc
   - --socket=fallback-x11
   - --socket=wayland
-  # Needed for audio
-  - --socket=pulseaudio
   # Add JRE bin on path
   - --env=PATH=/app/jre/bin:/usr/bin:/app/bin
   #- --env=GDK_BACKEND=wayland,x11
