@@ -1,0 +1,42 @@
+diff --git a/Cargo.lock b/Cargo.lock
+index 2c3cd46f..23da866e 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -3692,6 +3692,7 @@ dependencies = [
+  "discord-sdk",
+  "flexi_logger",
+  "glob",
++ "gtk",
+  "libloading 0.8.5",
+  "log",
+  "log-panics",
+diff --git a/gui/src-tauri/Cargo.toml b/gui/src-tauri/Cargo.toml
+index b42e91bf..9cac6710 100644
+--- a/gui/src-tauri/Cargo.toml
++++ b/gui/src-tauri/Cargo.toml
+@@ -60,3 +60,4 @@ winreg = "0.52"
+ 
+ [target.'cfg(target_os = "linux")'.dependencies]
+ libloading = "0.8"
++gtk = { version = "0.18", features = ["v3_24"] }
+diff --git a/gui/src-tauri/src/main.rs b/gui/src-tauri/src/main.rs
+index d319286f..754a0cf7 100644
+--- a/gui/src-tauri/src/main.rs
++++ b/gui/src-tauri/src/main.rs
+@@ -210,6 +210,16 @@ fn main() -> Result<()> {
+ 				window_state.update_window(&window.as_ref().window(), false)?;
+ 			}
+ 
++			#[cfg(all(target_os = "linux"))]
++			{
++				use gtk::prelude::GtkWindowExt;
++				let window_clone = window.clone();
++				window.run_on_main_thread(move || {
++					let Ok(gtk_window) = window_clone.gtk_window() else { return; };
++					gtk_window.set_icon_name(Some("dev.slimevr.SlimeVR"));
++				})?;
++		}
++
+ 			if cfg!(desktop) {
+ 				let handle = app.handle();
+ 				tray::create_tray(handle)?;
