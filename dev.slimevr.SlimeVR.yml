@@ -25,8 +25,6 @@ sdk-extensions:
 modules:
   # We need LibUSB for HID4Java
   - shared-modules/libusb/libusb.json
-  # Tray support
-  - shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json
   # We need the JRE for executing the server
   - name: openjdk
     buildsystem: simple
