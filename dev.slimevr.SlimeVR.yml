@@ -1,7 +1,7 @@
 app-id: dev.slimevr.SlimeVR
 runtime: org.gnome.Platform
 sdk: org.gnome.Sdk
-runtime-version: '47'
+runtime-version: '48'
 separate-locales: false
 command: slimevr
 finish-args:
@@ -37,8 +37,8 @@ modules:
       - install -Dm755 slimevr.jar /app/share/slimevr/slimevr.jar
     sources:
       - type: file
-        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.13.2/slimevr.jar
-        sha256: b3abb39c9b6c6b56d000cd5021d04c7b2fa6f50fefd8e7ca40f5e30f944047bf
+        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.15.0/slimevr.jar
+        sha256: cd79c551e705d59e72cc38946a5d26d7e0348ef1629f512f4676f57e77bdf320
   - name: slimevr-gui
     buildsystem: simple
     build-options:
@@ -58,16 +58,16 @@ modules:
     sources:
       - type: git
         url: https://github.com/SlimeVR/SlimeVR-Server.git
-        tag: "v0.13.2"
-        commit: 5c5636aa242b4c4b0ea93d2d796b1913aaf1dfaf
+        tag: "v0.15.0"
+        commit: 8881746941ee9f1f24ef7b429fbc786f5b6d696c
       # Patch for not checking if git is clean
       - type: patch
         path: clean.diff
       - type: patch
         path: version.patch
       - type: file
-        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.13.2/slimevr-gui-dist.tar.gz
-        sha256: 032ba368816bed2e3c39e0bfc2fb8dc8a0501e653b2504fd75e944aa8aded8b1
+        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.15.0/slimevr-gui-dist.tar.gz
+        sha256: f79c65e33749428f5caa90eb3e542cf684ad02581dde386f66f76950a9b26b44
       - "cargo-sources.json"
       - type: script
         dest-filename: slimevr-wrapper
