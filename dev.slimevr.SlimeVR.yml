@@ -51,7 +51,7 @@ modules:
       - mkdir -p gui/dist/ && tar -xf slimevr-gui-dist.tar.gz -C gui/dist && ls -l gui/dist
       - cargo --offline build --release
       - install -Dm644 gui/src-tauri/icons/icon.svg /app/share/icons/hicolor/scalable/apps/dev.slimevr.SlimeVR.svg
-      - install -Dm644 dev.slimevr.SlimeVR.metainfo.xml /app/share/metainfo/dev.slimevr.SlimeVR.metainfo.xml
+      - install -Dm644 gui/src-tauri/dev.slimevr.SlimeVR.metainfo.xml /app/share/metainfo/dev.slimevr.SlimeVR.metainfo.xml
       - install -Dm644 gui/src-tauri/dev.slimevr.SlimeVR.desktop /app/share/applications/dev.slimevr.SlimeVR.desktop
       - install -Dm755 target/release/slimevr /app/bin/slimevr-bin
       - install -Dm755 slimevr-wrapper /app/bin/slimevr
