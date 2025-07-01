@@ -37,8 +37,8 @@ modules:
       - install -Dm755 slimevr.jar /app/share/slimevr/slimevr.jar
     sources:
       - type: file
-        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.15.0/slimevr.jar
-        sha256: cd79c551e705d59e72cc38946a5d26d7e0348ef1629f512f4676f57e77bdf320
+        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.16.0/slimevr.jar
+        sha256: 9042fbc748eacbcce0cccff2d8176a61a35c686f455db41297764028db861906
   - name: slimevr-gui
     buildsystem: simple
     build-options:
@@ -58,8 +58,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/SlimeVR/SlimeVR-Server.git
-        tag: "v0.15.0"
-        commit: 8881746941ee9f1f24ef7b429fbc786f5b6d696c
+        tag: "v0.16.0"
+        commit: 62553f42275bdea0a0e0263364c7e1bf4783fd1d
       # Patch for not checking if git is clean
       - type: patch
         path: clean.diff
@@ -67,7 +67,7 @@ modules:
         path: version.patch
       - type: file
         url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.15.0/slimevr-gui-dist.tar.gz
-        sha256: f79c65e33749428f5caa90eb3e542cf684ad02581dde386f66f76950a9b26b44
+        sha256: 83df93b9bcc983a3df847b5f1695b99f87af81db11bcfe74da0f019d1461fd8d
       - "cargo-sources.json"
       - type: script
         dest-filename: slimevr-wrapper
