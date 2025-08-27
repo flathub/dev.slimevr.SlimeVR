@@ -1,13 +1,15 @@
 diff --git a/gui/src-tauri/dev.slimevr.SlimeVR.metainfo.xml b/gui/src-tauri/dev.slimevr.SlimeVR.metainfo.xml
-index 3f68fddba..06a7e91dd 100644
+index 06a7e91dd..6f4407efa 100644
 --- a/gui/src-tauri/dev.slimevr.SlimeVR.metainfo.xml
 +++ b/gui/src-tauri/dev.slimevr.SlimeVR.metainfo.xml
-@@ -65,6 +65,8 @@ work.  If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
+@@ -65,6 +65,10 @@ work.  If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
    </provides>
  
    <releases>
-+    <release version="0.16.0" date="2025-07-01"><url>https://github.com/SlimeVR/SlimeVR-Server/releases/tag/v0.16.0</url></release>
-+    <release version="0.16.0~rc.2" type="development" date="2025-06-20"><url>https://github.com/SlimeVR/SlimeVR-Server/releases/tag/v0.16.0-rc.2</url></release>
++    <release version="0.16.2" date="2025-08-01"><url>https://github.com/SlimeVR/SlimeVR-Server/releases/tag/v0.16.2</url></release>
++    <release version="0.16.1" date="2025-07-27"><url>https://github.com/SlimeVR/SlimeVR-Server/releases/tag/v0.16.1</url></release>
++    <release version="0.16.1~rc.2" type="development" date="2025-07-17"><url>https://github.com/SlimeVR/SlimeVR-Server/releases/tag/v0.16.1-rc.2</url></release>
++    <release version="0.16.1~rc.1" type="development" date="2025-07-04"><url>https://github.com/SlimeVR/SlimeVR-Server/releases/tag/v0.16.1-rc.1</url></release>
+     <release version="0.16.0" date="2025-07-01"><url>https://github.com/SlimeVR/SlimeVR-Server/releases/tag/v0.16.0</url></release>
+     <release version="0.16.0~rc.2" type="development" date="2025-06-20"><url>https://github.com/SlimeVR/SlimeVR-Server/releases/tag/v0.16.0-rc.2</url></release>
      <release version="0.16.0~rc.1" type="development" date="2025-05-27"><url>https://github.com/SlimeVR/SlimeVR-Server/releases/tag/v0.16.0-rc.1</url></release>
-     <release version="0.15.0" date="2025-05-19"><url>https://github.com/SlimeVR/SlimeVR-Server/releases/tag/v0.15.0</url></release>
-     <release version="0.15.0~rc.4" type="development" date="2025-05-12"><url>https://github.com/SlimeVR/SlimeVR-Server/releases/tag/v0.15.0-rc.4</url></release>
