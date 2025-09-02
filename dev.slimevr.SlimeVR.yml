@@ -65,6 +65,8 @@ modules:
         path: clean.diff
       - type: patch
         path: version.patch
+      - type: patch
+        path: taskbar-icon.patch
       - type: file
         url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.16.2/slimevr-gui-dist.tar.gz
         sha256: d0ac8bb1cfcbcc56614e453ea156e439c0578a15f165d47624055abfb6c45495
