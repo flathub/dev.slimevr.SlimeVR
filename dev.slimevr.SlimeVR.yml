@@ -1,7 +1,7 @@
 app-id: dev.slimevr.SlimeVR
 runtime: org.gnome.Platform
 sdk: org.gnome.Sdk
-runtime-version: '48'
+runtime-version: "48"
 separate-locales: false
 command: slimevr
 finish-args:
@@ -39,36 +39,51 @@ modules:
       - type: file
         url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.16.2/slimevr.jar
         sha256: bb93aedf7ee8e58b215730cc0cd6b18feedae4600119cdac71f6d414ea884259
+        x-checker-data:
+          type: anitya
+          project-id: 383505
+          url-template: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v$version/slimevr.jar
   - name: slimevr-gui
     buildsystem: simple
     build-options:
-      append-path: "/usr/lib/sdk/rust-stable/bin"
+      append-path: /usr/lib/sdk/rust-stable/bin
       env:
         CARGO_HOME: /run/build/slimevr-gui/cargo
     build-commands:
-      - sed -i gui/src-tauri/dev.slimevr.SlimeVR.desktop -e "s|{{exec}}|slimevr|" -e "s|{{icon}}|dev.slimevr.SlimeVR|"
+      - sed -i gui/src-tauri/dev.slimevr.SlimeVR.desktop -e "s|{{exec}}|slimevr|"
+        -e "s|{{icon}}|dev.slimevr.SlimeVR|"
       - cargo --offline fetch --manifest-path Cargo.toml --verbose
-      - mkdir -p gui/dist/ && tar -xf slimevr-gui-dist.tar.gz -C gui/dist && ls -l gui/dist
+      - mkdir -p gui/dist/ && tar -xf slimevr-gui-dist.tar.gz -C gui/dist && ls -l
+        gui/dist
       - cargo --offline build --release
       - install -Dm644 gui/src-tauri/icons/icon.svg /app/share/icons/hicolor/scalable/apps/dev.slimevr.SlimeVR.svg
-      - install -Dm644 gui/src-tauri/dev.slimevr.SlimeVR.metainfo.xml /app/share/metainfo/dev.slimevr.SlimeVR.metainfo.xml
-      - install -Dm644 gui/src-tauri/dev.slimevr.SlimeVR.desktop /app/share/applications/dev.slimevr.SlimeVR.desktop
+      - install -Dm644 -t /app/share/metainfo dev.slimevr.SlimeVR.metainfo.xml
+      - install -Dm644 -t /app/share/applications gui/src-tauri/dev.slimevr.SlimeVR.desktop
       - install -Dm755 target/release/slimevr /app/bin/slimevr-bin
       - install -Dm755 slimevr-wrapper /app/bin/slimevr
     sources:
       - type: git
         url: https://github.com/SlimeVR/SlimeVR-Server.git
-        tag: "v0.16.2"
+        tag: v0.16.2
         commit: 069da63d1f77b9e31d495dacbfb5974f4596543a
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+)$
+          version-scheme: semantic
+          is-main-source: true
       # Patch for not checking if git is clean
       - type: patch
         path: clean.diff
-      - type: patch
-        path: version.patch
+      - type: file
+        path: dev.slimevr.SlimeVR.metainfo.xml
       - type: file
         url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.16.2/slimevr-gui-dist.tar.gz
         sha256: d0ac8bb1cfcbcc56614e453ea156e439c0578a15f165d47624055abfb6c45495
-      - "cargo-sources.json"
+        x-checker-data:
+          type: anitya
+          project-id: 383505
+          url-template: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v$version/slimevr-gui-dist.tar.gz
+      - cargo-sources.json
       - type: script
         dest-filename: slimevr-wrapper
         commands:
