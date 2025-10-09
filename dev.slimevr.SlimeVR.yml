@@ -1,7 +1,7 @@
 app-id: dev.slimevr.SlimeVR
 runtime: org.gnome.Platform
 sdk: org.gnome.Sdk
-runtime-version: "48"
+runtime-version: '48'
 separate-locales: false
 command: slimevr
 finish-args:
@@ -64,8 +64,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/SlimeVR/SlimeVR-Server.git
-        tag: v0.16.2
-        commit: 069da63d1f77b9e31d495dacbfb5974f4596543a
+        tag: v0.16.3
+        commit: de16acbcf4f03286d6a331f91f7e4e01e56d325d
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
