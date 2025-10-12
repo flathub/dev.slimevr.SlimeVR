@@ -1,7 +1,7 @@
 app-id: dev.slimevr.SlimeVR
 runtime: org.gnome.Platform
 sdk: org.gnome.Sdk
-runtime-version: "48"
+runtime-version: '48'
 separate-locales: false
 command: slimevr
 finish-args:
@@ -37,8 +37,8 @@ modules:
       - install -Dm755 slimevr.jar /app/share/slimevr/slimevr.jar
     sources:
       - type: file
-        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.16.2/slimevr.jar
-        sha256: bb93aedf7ee8e58b215730cc0cd6b18feedae4600119cdac71f6d414ea884259
+        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.16.3/slimevr.jar
+        sha256: e07556294026a04159ac2e3ca62ecae4c784cc7682454cd8dc56114e4e84307b
         x-checker-data:
           type: anitya
           project-id: 383505
@@ -64,8 +64,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/SlimeVR/SlimeVR-Server.git
-        tag: v0.16.2
-        commit: 069da63d1f77b9e31d495dacbfb5974f4596543a
+        tag: v0.16.3
+        commit: de16acbcf4f03286d6a331f91f7e4e01e56d325d
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -77,8 +77,8 @@ modules:
       - type: file
         path: dev.slimevr.SlimeVR.metainfo.xml
       - type: file
-        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.16.2/slimevr-gui-dist.tar.gz
-        sha256: d0ac8bb1cfcbcc56614e453ea156e439c0578a15f165d47624055abfb6c45495
+        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.16.3/slimevr-gui-dist.tar.gz
+        sha256: 10541539b5a63c6f60f7f25c71fac4ea5a2e28353bb6124bc77d25ba5ceeb398
         x-checker-data:
           type: anitya
           project-id: 383505
