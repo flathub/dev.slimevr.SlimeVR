@@ -64,8 +64,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/SlimeVR/SlimeVR-Server.git
-        tag: v0.16.3
-        commit: de16acbcf4f03286d6a331f91f7e4e01e56d325d
+        tag: v0.17.0
+        commit: b02234f9fc9c1fbaa0d2008d2eb118b3a36b8854
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
