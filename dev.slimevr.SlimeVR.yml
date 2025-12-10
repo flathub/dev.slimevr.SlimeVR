@@ -37,8 +37,8 @@ modules:
       - install -Dm755 slimevr.jar /app/share/slimevr/slimevr.jar
     sources:
       - type: file
-        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.17.0/slimevr.jar
-        sha256: 9f6b186ed490368ae8bcc3db560ab1f267e1c5c0ca4bb7f22a8f946d982d671a
+        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v18.0.0/slimevr.jar
+        sha256: a42649ff7c85755e588a36a0c58370b7e6a8e1f43629db53061a5f7313ea6804
         x-checker-data:
           type: anitya
           project-id: 383505
@@ -64,8 +64,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/SlimeVR/SlimeVR-Server.git
-        tag: v0.17.0
-        commit: b02234f9fc9c1fbaa0d2008d2eb118b3a36b8854
+        tag: v18.0.0
+        commit: fe58968718ed6a037c22cb6a903adc484e29f520
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -77,8 +77,8 @@ modules:
       - type: file
         path: dev.slimevr.SlimeVR.metainfo.xml
       - type: file
-        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v0.17.0/slimevr-gui-dist.tar.gz
-        sha256: 30c5074d675bca9247da2d02f52a3e8bafa254e793569e0ed6d84f598ce49417
+        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v18.0.0/slimevr-gui-dist.tar.gz
+        sha256: 504e9ebeeb7fa82d0cb610c867cceef59b5741dc9a4bcb386abfbe7d93ad9efe
         x-checker-data:
           type: anitya
           project-id: 383505
