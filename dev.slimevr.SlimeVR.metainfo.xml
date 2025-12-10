@@ -65,8 +65,11 @@ work.  If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
   </provides>
 
   <releases>
-    <release version="0.17.0" date="2025-11-20">
+    <release version="18.0.0" date="2025-12-10">
       <description></description>
+    </release>
+    <release version="0.17.0" date="2025-11-20">
+      <description/>
     </release>
     <release version="0.16.3" date="2025-10-12">
       <description/>
