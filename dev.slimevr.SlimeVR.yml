@@ -27,8 +27,6 @@ sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk21
   - org.freedesktop.Sdk.Extension.node22
 modules:
-  # We need LibUSB for HID4Java
-  - shared-modules/libusb/libusb.json
   # We need the JRE for executing the server
   - name: node
     buildsystem: simple
@@ -94,10 +92,20 @@ modules:
       - type: file
         url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v20.1.0/slimevr.jar
         sha256: 2dde96d4009b6c91a4ec25f4f7ea322d1eef5e16622c1003098ffd4a3b34b495
+        x-checker-data:
+          type: anitya
+          project-id: 383505
+          url-template: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v$version/slimevr.jar
+          release-url-template: https://github.com/SlimeVR/SlimeVR-Server/releases/tag/v$version
+          is-main-source: true
       - type: git
         url: https://github.com/SlimeVR/SlimeVR-Server.git
         tag: v20.1.0
         commit: 81a46c2ea50ef7699a338795352ee8addece19fe
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+)$
+          version-scheme: semantic
       # Patch for not checking if git is clean
       - type: patch
         path: clean.diff
@@ -109,6 +117,11 @@ modules:
         url: https://registry.npmjs.org/pnpm/-/pnpm-10.33.0.tgz
         sha512: 10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319
         dest: pnpm
+        x-checker-data:
+          type: json
+          url: https://raw.githubusercontent.com/SlimeVR/SlimeVR-Server/refs/heads/main/package.json
+          version-query: .packageManager[5:]
+          url-query: '"https://registry.npmjs.org/pnpm/-/pnpm-" + $version + ".tgz"'
       - generated-sources.json
       - type: script
         dest-filename: slimevr-wrapper
