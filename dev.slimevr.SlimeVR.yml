@@ -90,8 +90,8 @@ modules:
       #
     sources:
       - type: file
-        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v20.1.0/slimevr.jar
-        sha256: 2dde96d4009b6c91a4ec25f4f7ea322d1eef5e16622c1003098ffd4a3b34b495
+        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v22.0.0/slimevr.jar
+        sha256: 107d2d3db24308bebec622a6f4a430cbc4487016ce497b3a025300b21c75dd9e
         x-checker-data:
           type: anitya
           project-id: 383505
@@ -100,8 +100,8 @@ modules:
           is-main-source: true
       - type: git
         url: https://github.com/SlimeVR/SlimeVR-Server.git
-        tag: v20.1.0
-        commit: 81a46c2ea50ef7699a338795352ee8addece19fe
+        tag: v22.0.0
+        commit: 5e3395afb026f28bfc783f79162dc82e818ca397
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
