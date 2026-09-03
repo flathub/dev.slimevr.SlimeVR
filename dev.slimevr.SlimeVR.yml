@@ -43,8 +43,6 @@ modules:
       env:
         TMPDIR: /run/build/slimevr-gui/flatpak-node/tmp
         XDG_CACHE_HOME: /run/build/slimevr-gui/flatpak-node/cache
-        pnpm_config_cache: /run/build/slimevr-gui/flatpak-node/npm-cache
-        electron_config_cache: /run/build/slimevr-gui/flatpak-node/cache/electron
 
     # Reference https://github.com/SlimeVR/SlimeVR-Server/blob/main/.github/workflows/build.yml
     build-commands:
@@ -79,7 +77,7 @@ modules:
         mkdir -p gui/dist/artifacts/linux
 
         . ../flatpak-node/electron-builder-arch-args.sh
-        electron-builder $ELECTRON_BUILDER_ARCH_ARGS --linux dir --publish never -c.extraMetadata.version=$VERSION
+        electron-builder $ELECTRON_BUILDER_ARCH_ARGS --linux dir --publish never -c.extraMetadata.version=$VERSION --config.electronDownload.isVerifyChecksum="false"
 
       # Bundle app and dependencies
       - cp -a gui/dist/artifacts/linux/linux*unpacked /app/main
@@ -90,8 +88,8 @@ modules:
       #
     sources:
       - type: file
-        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v20.1.0/slimevr.jar
-        sha256: 2dde96d4009b6c91a4ec25f4f7ea322d1eef5e16622c1003098ffd4a3b34b495
+        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v21.0.0/slimevr.jar
+        sha256: 0411d607aaf88c4a0d332704ebf85e1fadc0125b68bcb722c36b473ef9bf5442
         x-checker-data:
           type: anitya
           project-id: 383505
@@ -100,8 +98,8 @@ modules:
           is-main-source: true
       - type: git
         url: https://github.com/SlimeVR/SlimeVR-Server.git
-        tag: v20.1.0
-        commit: 81a46c2ea50ef7699a338795352ee8addece19fe
+        tag: v21.0.0
+        commit: 554976390b7ce27e789038fc8cc1ed04df7ae6de
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
