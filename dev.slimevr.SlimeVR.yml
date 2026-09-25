@@ -1,9 +1,9 @@
 app-id: dev.slimevr.SlimeVR
 runtime: org.freedesktop.Platform
 sdk: org.freedesktop.Sdk
-runtime-version: '25.08'
+runtime-version: '26.08'
 base: org.electronjs.Electron2.BaseApp
-base-version: '25.08'
+base-version: '26.08'
 separate-locales: false
 command: slimevr
 finish-args:
@@ -88,8 +88,8 @@ modules:
       #
     sources:
       - type: file
-        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v21.0.0/slimevr.jar
-        sha256: 0411d607aaf88c4a0d332704ebf85e1fadc0125b68bcb722c36b473ef9bf5442
+        url: https://github.com/SlimeVR/SlimeVR-Server/releases/download/v21.1.0/slimevr.jar
+        sha256: ce0baf6c99ac77a20c2680a51db2c93a30e9b51167b3c2d65f57fcb5d1c60dc1
         x-checker-data:
           type: anitya
           project-id: 383505
@@ -98,8 +98,8 @@ modules:
           is-main-source: true
       - type: git
         url: https://github.com/SlimeVR/SlimeVR-Server.git
-        tag: v21.0.0
-        commit: 554976390b7ce27e789038fc8cc1ed04df7ae6de
+        tag: v21.1.0
+        commit: c11dc54ed1a745ffc4b15db7f820d8d0c1993990
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
